@@ -1,2 +1,25 @@
 ---
 # tasks file for base-config
+- name: enable sudo without tty for some ansible commands
+  replace:
+    path: /etc/sudoers
+    regexp: '^Defaults\s*requiretty'
+    replace: 'Defaults  !requiretty'
+    backup: yes
+
+- name: Run yum clean
+  shell: yum clean all
+
+- name: Install EPEL repos 
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present 
+
+- name: Install pip
+  yum:
+    name:
+      - python-pip
+      - gcc
+    state: latest
+
+...

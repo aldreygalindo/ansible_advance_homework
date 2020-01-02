@@ -1,2 +1,4 @@
 ---
 # vars file for db-tier
+postgresql_db_dir: /var/lib/pgsql/data
+

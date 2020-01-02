@@ -4,7 +4,7 @@
   tasks:
   - name: Install required packages 
     yum: 
-     name: "{{item}}"
+     name: "{{ item }}"
      state: latest 
     loop: 
       - python 
@@ -24,7 +24,7 @@
       organization: Default
       state: present
       kind: ssh
-      tower_host: tower1.{{tower_guid}}.example.opentlc.com
+      tower_host: "tower1.{{ tower_guid }}.example.opentlc.com"
       tower_username: admin
       tower_password: r3dh4t1!
       tower_verify_ssl: no
@@ -33,8 +33,8 @@
   - name: Update Prod Job template
     tower_job_template:
       name: "3 tier app on Prod"
-      machine_credential: "Creds for AWS instances"
-      tower_host: tower1.{{tower_guid}}.example.opentlc.com
+      credential: "Creds for AWS instances"
+      tower_host: "tower1.{{ tower_guid }}.example.opentlc.com"
       tower_username: admin
       tower_password: r3dh4t1!
       tower_verify_ssl: no
@@ -45,8 +45,8 @@
   - name: Update Prod Smoke Job template
     tower_job_template:
       name: "Smoke test Prod env"
-      machine_credential: "Creds for AWS instances"
-      tower_host: tower1.{{tower_guid}}.example.opentlc.com
+      credential: "Creds for AWS instances"
+      tower_host: "tower1.{{ tower_guid }}.example.opentlc.com"
       tower_username: admin
       tower_password: r3dh4t1!
       tower_verify_ssl: no
