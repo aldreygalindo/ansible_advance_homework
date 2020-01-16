@@ -31,7 +31,7 @@
     server: "{{ item.value.name }}"
     network: ext_network
     wait: true
-    timeout: 300
+    timeout: 200
   with_dict: "{{ osp_servers }}"
   register: output_floatingips
 
