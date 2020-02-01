@@ -10,6 +10,12 @@
 - name: Run yum clean
   shell: yum clean all
 
+- name: enable repos.
+  template:
+    src: open_three-tier-app.repo
+    dest:  /etc/yum.repos.d/open_three-tier-app.repo
+    mode: '0644'
+
 - name: Install EPEL repos 
   yum:
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
